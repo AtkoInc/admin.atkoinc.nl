@@ -1,0 +1,65 @@
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="page-header" id="top">
+            <h2 class="pageheader-title">Invite user</h2>
+        </div>
+        <div class="section-block" id="basicform">
+            <p>When adding a new user to your organization, this user will automatically receive an activation email.</p>
+        </div>
+        <div class="card">
+            <h5 class="card-header">Invite new user to join <i>{{organization}}</i></h5>
+            <div class="card-body">
+                <form action="invite_user" method="post">
+                    {{#with user}}
+                    <div class="form-group">
+                        <label for="inputText3" class="col-form-label">Email address</label>
+                        <input id="email" name="email" type="text" class="form-control" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputText3" class="col-form-label">First name</label>
+                        <input id="first_name" name="first_name" type="text" class="form-control" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputText3" class="col-form-label">Last name</label>
+                        <input id="last_name" name="last_name" type="text" class="form-control" value="">
+                    </div>
+                    <input name="federated" type="hidden" value="false">
+                    <input name="organization" type="hidden" value="{{organization}}">
+                    <hr>
+                    <button class="btn btn-primary" type="submit">Send invite</button> <a href="/users"><button class="btn btn-default" type="Button">Cancel</button></a>
+                    {{/with}}
+                </form>
+            </div>
+        </div>
+        <div class="card">
+            <h5 class="card-header">Profile meta data</h5>
+            <div class="card-body">
+                <form>
+                    {{#with user}}
+                    <div class="form-group">
+                        <label for="inputText3" class="col-form-label">Creator</label>
+                        <input id="meta_creator" name="meta_creator" disabled type="text" class="form-control" value="{{userName}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputText3" class="col-form-label">Federated</label>
+                        <input id="meta_federated" name="meta_federated" disabled type="text" class="form-control" value="false">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputText3" class="col-form-label">Organization</label>
+                        <input id="meta_organization" name="meta_organization" disabled type="text" class="form-control" value="{{organization}}">
+                    </div>
+                    {{!-- <div class="form-group">
+                        <label for="inputText3" class="col-form-label">Last name</label>
+                        <input id="last_name" name="last_name" type="text" class="form-control" value="{{lastName}}">
+                    </div>
+                    <hr>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                        <button class="btn btn-primary" type="submit">Update information</button> <a href="/account_profile"><button class="btn btn-default" type="Button">Cancel</button></a>
+                    </div> --}}
+                    {{/with}}
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
