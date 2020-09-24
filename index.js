@@ -44,6 +44,33 @@ app.engine('hbs',  hbs( {
             return options.fn(this).replace(
                 new RegExp(' value=\"' + selected + '\"'),
                 '$& selected="selected"');
+        },
+        theme: function(){
+            return process.env.THEME
+        },
+        microServiceLinks: function(link) {
+            return process.env[link];
+        },
+        if_link_exists: function(conditional, options) {
+            if (process.env[conditional]) {
+                return options.fn(this);
+            } else {
+                return options.inverse(this);
+            }
+        },
+        appTitle: function(){
+            if(process.env.TITLE){
+                return process.env.TITLE;
+            }
+
+            return 'Atko Inc.'
+        },
+        appLogoUrl: function(){
+            if(process.env.LOGO_URL){
+                return process.env.LOGO_URL;
+            }
+
+            return 'assets/images/icons/logo.png'
         }
     }
   } ) );
